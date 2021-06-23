@@ -1,0 +1,7 @@
+health.woodho.me {
+	respond "Healthy"
+}
+
+pihole.woodho.me {
+	reverse_proxy pihole
+}

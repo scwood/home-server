@@ -1,20 +1,33 @@
 version: "3"
 
 services:
+  caddy:
+    container_name: caddy
+    image: caddy:2
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./caddy/Caddyfile:/etc/caddy/Caddyfile
+      - ./caddy/data/:/data
+      - ./caddy/config/:/config
   pihole:
     container_name: pihole
     image: pihole/pihole:latest
+    restart: unless-stopped
     ports:
       - "53:53/tcp"
       - "53:53/udp"
       - "67:67/udp"
-      - "80:80/tcp"
+      - "9999:80"
     environment:
       TZ: "America/Los_Angeles"
       ServerIP: "192.168.0.110"
+      WEBPASSWORD: "${PIHOLE_ADMIN_PASSWORD}"
+      PIHOLE_DNS_: "1.1.1.1;1.0.0.1"
     volumes:
       - "./pihole/etc-pihole/:/etc/pihole/"
       - "./pihole/etc-dnsmasq.d/:/etc/dnsmasq.d/"
     cap_add:
       - NET_ADMIN
-    restart: unless-stopped
