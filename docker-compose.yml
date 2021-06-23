@@ -20,7 +20,7 @@ services:
       - "53:53/tcp"
       - "53:53/udp"
       - "67:67/udp"
-      - "9999:80"
+      - "8080:80"
     environment:
       TZ: "America/Los_Angeles"
       ServerIP: "192.168.0.110"
