@@ -4,4 +4,5 @@ health.woodho.me {
 
 pihole.woodho.me {
 	reverse_proxy pihole
+	redir / /admin
 }
