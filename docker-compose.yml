@@ -23,7 +23,7 @@ services:
       - "8080:80"
     environment:
       TZ: "America/Los_Angeles"
-      ServerIP: "192.168.0.110"
+      ServerIP: "192.168.0.104"
       WEBPASSWORD: "${PIHOLE_ADMIN_PASSWORD}"
       PIHOLE_DNS_: "1.1.1.1;1.0.0.1"
     volumes:

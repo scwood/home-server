@@ -1,4 +1,4 @@
-health.woodho.me {
+health.woodho.me, localhost/health {
 	respond "Healthy"
 }
 
